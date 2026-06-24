@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Music Scene 🎬</title>
+<title>Music 🎵</title>
 
 <link rel="stylesheet" href="style.css">
 </head>
@@ -20,40 +20,29 @@
 
 <div class="container">
 
-<h1>🎵 Cinematic Sound</h1>
+<h1>🎵 Cinematic Music</h1>
 
 <div class="card">
 
-<!-- 🎧 الصوت مخفي (بدون مشغل) -->
+<!-- 🎧 الصوت -->
 <audio id="bgmusic" loop>
-    <source src="music.mp3" type="audio/mpeg">
+    <!-- مهم: اسم فيه مسافات -->
+    <source src="عيد ميلاد رحمة.m4a" type="audio/mp4">
 </audio>
 
-<!-- 🎬 زر تشغيل سينمائي -->
+<!-- 🎬 زر سينمائي -->
 <button class="cinema-btn" onclick="toggleMusic()">
-    ▶ Play / Pause Music
+▶ تشغيل / إيقاف الموسيقى
 </button>
 
-<!-- 💖 النص تحت الموسيقى -->
+<!-- 💖 نص تحت الصوت -->
 <p class="music-text">
-    هذه الموسيقى تمثل لحظة هادئة داخل القصة... حيث يتوقف الزمن قليلاً 💖
+هذه الموسيقى تمثل لحظة خاصة جدًا داخل الفيلم 💖
 </p>
 
 </div>
 
 </div>
-
-<script>
-function toggleMusic() {
-    const audio = document.getElementById("bgmusic");
-
-    if (audio.paused) {
-        audio.play();
-    } else {
-        audio.pause();
-    }
-}
-</script>
 
 <script src="app.js"></script>
 
