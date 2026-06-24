@@ -1,6 +1,10 @@
 /* =========================
-   🎬 CINEMATIC GLOBAL STYLE
+   🎬 CINEMATIC BASE
 ========================= */
+
+* {
+    box-sizing: border-box;
+}
 
 body {
     margin: 0;
@@ -9,49 +13,37 @@ body {
     text-align: center;
     min-height: 100vh;
     overflow-x: hidden;
-    background: #000;
+    background: black;
 }
 
-/* 🌌 طبقة سينمائية: ضباب + ضوء + حركة */
+/* 🌌 خلفية سينمائية خفيفة (مناسبة للهاتف) */
 body::before {
     content: "";
     position: fixed;
     inset: 0;
     z-index: -2;
-    background: radial-gradient(circle at 20% 20%, rgba(255,77,166,0.25), transparent 40%),
-                radial-gradient(circle at 80% 80%, rgba(77,121,255,0.25), transparent 40%),
-                radial-gradient(circle at center, rgba(255,255,255,0.05), transparent 60%),
+    background: radial-gradient(circle at top, rgba(255,77,166,0.25), transparent 60%),
+                radial-gradient(circle at bottom, rgba(77,121,255,0.25), transparent 60%),
                 linear-gradient(135deg, #050510, #0b0f2f, #1c1b3a);
-    animation: cinematicGlow 12s infinite alternate ease-in-out;
+    animation: glow 10s infinite alternate ease-in-out;
 }
 
-/* 🌫️ طبقة ضباب خفيف متحرك */
+/* إزالة الضباب الثقيل على الهاتف */
 body::after {
-    content: "";
-    position: fixed;
-    inset: 0;
-    z-index: -1;
-    background: url("https://i.imgur.com/3ZQ3ZQm.png");
-    opacity: 0.05;
-    animation: fogMove 20s linear infinite;
+    display: none;
 }
 
 /* =========================
-   🎞️ ANIMATIONS
+   🎞️ ANIMATION
 ========================= */
 
-@keyframes cinematicGlow {
-    0% { filter: brightness(1) contrast(1); }
-    100% { filter: brightness(1.2) contrast(1.1); }
-}
-
-@keyframes fogMove {
-    from { transform: translateX(0); }
-    to { transform: translateX(-200px); }
+@keyframes glow {
+    from { filter: brightness(1); }
+    to { filter: brightness(1.15); }
 }
 
 /* =========================
-   🎬 NAVBAR (سينمائي فاخر)
+   🔷 NAVBAR (Responsive)
 ========================= */
 
 nav {
@@ -60,145 +52,146 @@ nav {
     z-index: 1000;
     display: flex;
     justify-content: center;
-    gap: 15px;
-    padding: 15px;
-    background: rgba(0,0,0,0.4);
-    backdrop-filter: blur(15px);
-    border-bottom: 1px solid rgba(255,255,255,0.08);
+    flex-wrap: wrap;
+    gap: 8px;
+    padding: 12px;
+    background: rgba(0,0,0,0.45);
+    backdrop-filter: blur(10px);
 }
 
-/* روابط سينمائية */
 nav a {
     color: white;
     text-decoration: none;
-    padding: 10px 18px;
-    border-radius: 30px;
-    background: rgba(255,255,255,0.06);
-    transition: 0.4s;
-    position: relative;
-    overflow: hidden;
+    padding: 8px 12px;
+    border-radius: 18px;
+    background: rgba(255,255,255,0.08);
+    font-size: 14px;
+    transition: 0.3s;
 }
 
-/* Glow hover */
 nav a:hover {
-    background: rgba(255,77,166,0.9);
-    box-shadow: 0 0 20px rgba(255,77,166,0.6);
-    transform: scale(1.08);
+    background: #ff4da6;
 }
 
 /* =========================
-   🎥 MAIN CONTAINER
+   📦 CONTAINER (Mobile Friendly)
 ========================= */
 
 .container {
-    width: 85%;
+    width: 95%;
     margin: auto;
-    padding: 50px;
-    animation: fadeInUp 1.2s ease;
+    padding: 20px;
+    animation: fade 1s ease;
 }
 
-/* دخول سينمائي */
-@keyframes fadeInUp {
-    from {
-        opacity: 0;
-        transform: translateY(30px);
-        filter: blur(5px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-        filter: blur(0);
-    }
+@keyframes fade {
+    from { opacity: 0; transform: translateY(15px); }
+    to { opacity: 1; transform: translateY(0); }
 }
 
 /* =========================
-   💖 TITLES (Glow effect)
+   💖 TITLES (Responsive)
 ========================= */
 
 h1 {
-    font-size: 48px;
+    font-size: 28px;
     color: #ff4da6;
-    text-shadow: 0 0 15px rgba(255,77,166,0.8),
-                 0 0 30px rgba(255,77,166,0.4);
-    letter-spacing: 1px;
+    text-shadow: 0 0 10px rgba(255,77,166,0.5);
 }
 
 h2 {
-    font-weight: 400;
-    color: #ffffff;
-    opacity: 0.9;
+    font-size: 18px;
 }
 
 /* =========================
-   🎞️ CARDS (Cinema Glass)
+   💳 CARDS (Mobile optimized)
 ========================= */
 
 .card {
-    background: rgba(255,255,255,0.06);
-    padding: 25px;
-    margin: 20px 0;
-    border-radius: 20px;
-    backdrop-filter: blur(12px);
-    border: 1px solid rgba(255,255,255,0.08);
-    transition: 0.4s ease;
-}
-
-/* hover cinematic */
-.card:hover {
-    transform: translateY(-8px) scale(1.02);
-    box-shadow: 0 0 25px rgba(255,77,166,0.2);
+    background: rgba(255,255,255,0.08);
+    padding: 15px;
+    margin: 15px 0;
+    border-radius: 15px;
+    backdrop-filter: blur(8px);
 }
 
 /* =========================
-   ⏳ COUNTDOWN (dramatic)
+   ⏳ COUNTDOWN
 ========================= */
 
 #countdown {
-    font-size: 22px;
-    font-weight: bold;
-    color: #ffffff;
-    text-shadow: 0 0 10px rgba(255,255,255,0.4);
+    font-size: 16px;
 }
 
 /* =========================
-   🎬 PAGE THEMES
+   ❤️ HEARTS (خفيفة للهاتف)
 ========================= */
 
-body.home::before {
-    background: radial-gradient(circle at top, rgba(255,77,166,0.3), transparent 50%),
-                linear-gradient(135deg, #050510, #1c1b3a);
+.hearts::before {
+    content: "💖 💕 💖 💕";
+    position: fixed;
+    top: 100%;
+    width: 100%;
+    font-size: 18px;
+    opacity: 0.25;
+    animation: float 10s linear infinite;
 }
 
-body.message::before {
-    background: radial-gradient(circle at center, rgba(255,77,166,0.35), transparent 60%),
-                linear-gradient(135deg, #0b0f2f, #1a1a40);
-}
-
-body.reasons::before {
-    background: radial-gradient(circle at top right, rgba(77,121,255,0.3), transparent 50%),
-                linear-gradient(135deg, #050510, #0b0f2f);
-}
-
-body.secret::before {
-    background: radial-gradient(circle at center, rgba(0,255,204,0.25), transparent 60%),
-                linear-gradient(135deg, #050510, #1c1b3a);
+@keyframes float {
+    to { transform: translateY(-120vh); }
 }
 
 /* =========================
-   📱 MOBILE CINEMATIC FIX
+   🎬 INTRO SCREEN (Mobile safe)
 ========================= */
 
-@media (max-width: 600px) {
+body.intro {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: black;
+    padding: 20px;
+}
+
+.intro-title {
+    font-size: 26px;
+    color: #ff4da6;
+}
+
+.intro-text {
+    font-size: 14px;
+    opacity: 0.8;
+}
+
+/* =========================
+   📱 EXTRA MOBILE OPTIMIZATION
+========================= */
+
+@media (max-width: 480px) {
+
     h1 {
-        font-size: 32px;
+        font-size: 24px;
     }
 
     nav {
-        flex-wrap: wrap;
+        gap: 5px;
+        padding: 10px;
+    }
+
+    nav a {
+        font-size: 12px;
+        padding: 6px 10px;
     }
 
     .container {
-        width: 92%;
-        padding: 25px;
+        padding: 15px;
+    }
+
+    .card {
+        padding: 12px;
+    }
+
+    #countdown {
+        font-size: 14px;
     }
 }
