@@ -1,6 +1,6 @@
-let targetDate = new Date("2026-07-01").getTime();
+let targetDate = new Date("2026-06-26").getTime();
 
-let x = setInterval(function() {
+setInterval(function() {
     let now = new Date().getTime();
     let distance = targetDate - now;
 
@@ -9,7 +9,7 @@ let x = setInterval(function() {
     let minutes = Math.floor((distance % (1000*60*60)) / (1000*60));
 
     document.getElementById("countdown").innerHTML =
-        days + " days " + hours + "h " + minutes + "m left";
+        days + "d " + hours + "h " + minutes + "m";
 
     if(distance < 0){
         document.getElementById("countdown").innerHTML =
