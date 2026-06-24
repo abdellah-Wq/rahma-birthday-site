@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Music Scene 🎬</title>
+
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body class="music">
+
+<nav>
+<a href="index.html">Home</a>
+<a href="message.html">Message</a>
+<a href="reasons.html">Why I Love You</a>
+<a href="secret.html">Secret</a>
+<a href="music.html">Music</a>
+</nav>
+
+<div class="container">
+
+<h1>🎵 Cinematic Sound</h1>
+
+<div class="card">
+
+<!-- 🎧 الصوت مخفي (بدون مشغل) -->
+<audio id="bgmusic" loop>
+    <source src="music.mp3" type="audio/mpeg">
+</audio>
+
+<!-- 🎬 زر تشغيل سينمائي -->
+<button class="cinema-btn" onclick="toggleMusic()">
+    ▶ Play / Pause Music
+</button>
+
+<!-- 💖 النص تحت الموسيقى -->
+<p class="music-text">
+    هذه الموسيقى تمثل لحظة هادئة داخل القصة... حيث يتوقف الزمن قليلاً 💖
+</p>
+
+</div>
+
+</div>
+
+<script>
+function toggleMusic() {
+    const audio = document.getElementById("bgmusic");
+
+    if (audio.paused) {
+        audio.play();
+    } else {
+        audio.pause();
+    }
+}
+</script>
+
+<script src="app.js"></script>
+
+</body>
+</html>
